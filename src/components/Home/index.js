@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../Navbar';
+import Footer from '../Footer'
 import Header from '../Header';
 import Particles from 'react-tsparticles';
 import { makeStyles } from '@material-ui/core/styles';
@@ -95,6 +96,7 @@ const Home = () => {
 
             <Navbar />
             <Header />
+
         </>
     )
 }

@@ -26,6 +26,8 @@ import {
 import { makeStyles } from '@material-ui/core/styles'
 import MobileRightMenuSlider from '@material-ui/core/Drawer'
 import headshot from '../../assets/images/Headshot.jpg'
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
 
 //CSS styles
 
@@ -48,6 +50,19 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
+const theme = createTheme({
+    components: {
+        MuiTypography: {
+            styleOverrides: {
+                root: {
+                    textDecoration: 'none',
+                    color: 'white'
+                }
+            }
+        },
+    }
+})
+
 const menuItems = [
     {
         listIcon: <Home />,
@@ -58,7 +73,7 @@ const menuItems = [
     {
         listIcon: <AssignmentInd />,
         listText: "Resume",
-        listPath:"/resume"
+        listPath: "/resume"
     },
     {
         listIcon: <Apps />,
@@ -95,7 +110,7 @@ const Navbar = () => {
             <List>
                 {menuItems.map((lsItem, key) => (
 
-                    <ListItem button key={key} component={Link} to={lsItem.listPath }>
+                    <ListItem button key={key} component={Link} to={lsItem.listPath}>
                         <ListItemIcon classes={classes.listItem}>
                             {lsItem.listIcon}
                         </ListItemIcon>
@@ -107,17 +122,22 @@ const Navbar = () => {
     )
 
     return (
+        <ThemeProvider theme={theme}>
         <>
             <Box component="nav">
                 <AppBar position='sticky' style={{ backgroundColor: "#495867" }}>
-                    <Toolbar>
+                    <Toolbar >
                         <IconButton onClick={toggleSlider("right", true)}>
                             <ArrowBack style={{ color: '#F7F7FF' }} />
                         </IconButton>
-                        <Typography variant='h5' style={{ color: '#F7F7FF' }}>
+                        <Typography component={Link}  variant='h5' style={{ color: '#F7F7FF' }}
+                            to={'/portfolio'}>
                             Portfolio
                         </Typography>
-                        <Typography variant='h5' style={{ color: '#F7F7FF' }}>
+                        <Typography component={Link} variant='h5' style={{ color: '#F7F7FF' }} to={'/resume'}>
+                            Resume
+                        </Typography>
+                        <Typography component={Link}  variant='h5' style={{ color: '#F7F7FF' }} to={'/contact'}>
                             Contact
                         </Typography>
                         <MobileRightMenuSlider
@@ -131,6 +151,7 @@ const Navbar = () => {
                 </AppBar>
             </Box>
         </>
+        </ThemeProvider>
     )
 }
 
