@@ -10,7 +10,7 @@ const Success = () => {
 
     return (
         <Box container width='100%'>
-            <Card style={{width:'75%', margin:"20px auto", textAlign:'center' }} >
+            <Card style={{width:'75%', margin:"20px auto", textAlign:'center', height:'300px' , textAlign:'center' }} >
                 <CardContent>
                     <Typography>
                         Looking forward to connecting with you!
