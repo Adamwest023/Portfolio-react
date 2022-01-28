@@ -13,6 +13,7 @@ import {
     Typography,
     Box,
     Icon,
+    Grid,
 } from '@material-ui/core'
 
 import {
@@ -35,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     menuSliderContainer: {
         width: 250,
         background: '#BDD5EA',
-        height: '100%'
+        height: '100%',
     },
     avatar: {
         display: 'block',
@@ -123,34 +124,41 @@ const Navbar = () => {
 
     return (
         <ThemeProvider theme={theme}>
-        <>
-            <Box component="nav">
-                <AppBar position='sticky' style={{ backgroundColor: "#495867" }}>
-                    <Toolbar >
-                        <IconButton onClick={toggleSlider("right", true)}>
-                            <ArrowBack style={{ color: '#F7F7FF' }} />
-                        </IconButton>
-                        <Typography component={Link}  variant='h5' style={{ color: '#F7F7FF' }}
-                            to={'/portfolio'}>
-                            Portfolio
-                        </Typography>
-                        <Typography component={Link} variant='h5' style={{ color: '#F7F7FF' }} to={'/resume'}>
-                            Resume
-                        </Typography>
-                        <Typography component={Link}  variant='h5' style={{ color: '#F7F7FF' }} to={'/contact'}>
-                            Contact
-                        </Typography>
-                        <MobileRightMenuSlider
-                            anchor='right'
-                            open={state.right}
-                            onClick={toggleSlider('right', false)}
-                        >
-                            {sideList("right")}
-                        </MobileRightMenuSlider>
-                    </Toolbar>
-                </AppBar>
-            </Box>
-        </>
+            <>
+                <Box component="nav" sx={{ pb: '50px' }}>
+                    <AppBar position='sticky' style={{ backgroundColor: "#495867", alignItems: 'center' }}>
+                        <Toolbar style={{ width: '100%' }} >
+                            <Grid container spacing={6} justifyContent="space-between"
+                                alignItems="center">
+                                <Grid item xs={3}>
+                                    <IconButton onClick={toggleSlider("right", true)}>
+                                        <ArrowBack style={{ color: '#F7F7FF', alignItems: 'left' }} />
+                                    </IconButton>
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <Typography component={Link} variant='h5' style={{ color: '#F7F7FF', textDecoration: "none", paddingRight: '10px' }}
+                                        to={'/portfolio'}>
+                                        Portfolio
+                                    </Typography>
+                                    <Typography component={Link} variant='h5' style={{ color: '#F7F7FF', textDecoration: 'none', paddingRight: '10px' }} to={'/resume'}>
+                                        Resume
+                                    </Typography>
+                                    <Typography component={Link} variant='h5' style={{ color: '#F7F7FF', textDecoration: 'none', paddingRight: '10px' }} to={'/contact'}>
+                                        Contact
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                            <MobileRightMenuSlider
+                                anchor='right'
+                                open={state.right}
+                                onClick={toggleSlider('right', false)}
+                            >
+                                {sideList("right")}
+                            </MobileRightMenuSlider>
+                        </Toolbar>
+                    </AppBar>
+                </Box>
+            </>
         </ThemeProvider>
     )
 }

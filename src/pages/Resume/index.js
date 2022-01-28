@@ -1,8 +1,8 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography, Box, Grid, CardMedia, Card } from '@material-ui/core'
-import Navbar from '../Navbar'
-import Footer from '../Footer'
+import Navbar from '../../components/Navbar'
+import Footer from '../../components/Footer'
 import Particles from 'react-tsparticles';
 import CodeResume from '../../assets/images/AdamWestResumeCoding.png'
 import FilmResume from '../../assets/images/AdamWestResumeFilm.png'

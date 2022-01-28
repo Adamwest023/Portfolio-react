@@ -1,14 +1,14 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import Navbar from '../Navbar'
-import Footer from '../Footer';
+import Navbar from '../../components/Navbar'
+import Footer from '../../components/Footer';
 import Particles from 'react-tsparticles';
 import { Box, Typography, Card, CardMedia, Grid, CardContent } from '@material-ui/core'
 import { CardActionArea } from '@mui/material';
 import ReactFest from '../../assets/images/React-fest.png'
 import FoodFestival from '../../assets/images/FoodFestival.png'
 import Recipe from '../../assets/images/Recipe.png'
-import { height } from '@mui/system';
+
 
 
 const useStyles= makeStyles({
